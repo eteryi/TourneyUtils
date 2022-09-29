@@ -1,0 +1,22 @@
+name: TourneyUtils
+version: '${project.version}'
+main: dev.cross.tourneyutils.Tourneyutils
+api-version: 1.16
+authors: [ Cross ]
+description: Made to give a better experience in events.
+commands:
+  remove:
+    usage: /remove
+    description: Removes the player from every team.
+  add:
+    usage: /add
+    description: Adds a player to a team.
+  list:
+    usage: /list
+    description: Lists all the player on a team.
+  announce:
+    usage: /announce
+    description: Announces the next round.
+  allteleport:
+    usage: /allteleport
+    description: Teleports all players from a specific team to your current location.

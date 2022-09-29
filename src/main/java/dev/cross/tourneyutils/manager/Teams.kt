@@ -1,0 +1,5 @@
+package dev.cross.tourneyutils.manager
+
+enum class Teams {
+    LIME_LLAMAS, PINK_PARROTS, PURPLE_PANDAS, BLUE_BATS, RED_RABBITS, GREEN_GECKOS, CYAN_COYOTES, AQUA_AXOLOTLS, NONE
+}
