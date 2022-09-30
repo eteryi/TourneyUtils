@@ -14,7 +14,17 @@ class List : CommandExecutor{
     override fun onCommand(sender: CommandSender, command: Command, label: String, args: Array<out String>): Boolean {
         if(sender is Player) {
             if(args.size <= 0) {
-                sender.sendMessage("${ChatColor.RED}Please provide the team you're trying to see.")
+                for(team in Teams.values()) {
+                    sender.sendMessage("${ColorGetter.getColor(team)}${UnicodeFormatter.getStringUnicode("${ColorGetter.getFullName(team)}: ")}")
+                    sender.sendMessage("     ")
+
+                    for(i in DataStorage.getAllPlayersFromTeam(team)) {
+
+                        sender.sendMessage("${ColorGetter.getColor(team)}${i.name}")
+
+                    }
+                    sender.sendMessage("        ")
+                }
                 return true
             }
             if(ColorGetter.getTeamFromString(args[0].lowercase()) == Teams.NONE) {

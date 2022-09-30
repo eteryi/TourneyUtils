@@ -27,6 +27,9 @@ class DataStorage {
             }
             return listOfPlayers
         }
+        fun getAllTeams() {
+
+        }
 
     }
 }
