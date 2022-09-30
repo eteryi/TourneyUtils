@@ -10,6 +10,9 @@ class DataStorage {
 
         private var playerTeams = hashMapOf<UUID, Teams>()
 
+        fun getPlayerTeam(player: Player): Teams {
+            return playerTeams[player.uniqueId] ?: Teams.NONE
+        }
         fun setPlayerTeam(player: Player, team : Teams) {
             playerTeams[player.uniqueId] = team
         }

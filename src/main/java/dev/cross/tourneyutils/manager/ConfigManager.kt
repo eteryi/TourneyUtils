@@ -6,7 +6,7 @@ import org.bukkit.Location
 class ConfigManager {
 
     companion object {
-        val config = Bukkit.getPluginManager().getPlugin("TourneyUtils")!!.config
+        private val config = Bukkit.getPluginManager().getPlugin("TourneyUtils")!!.config
 
         fun addLocationToConfig(locName : String, loc : Location) {
             config.set(locName.lowercase(), loc)

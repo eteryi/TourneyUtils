@@ -2,6 +2,7 @@ package dev.cross.tourneyutils
 
 import dev.cross.tourneyutils.commands.*
 import dev.cross.tourneyutils.commands.List
+import dev.cross.tourneyutils.events.ChatMessage
 import org.bukkit.Bukkit
 import org.bukkit.command.CommandExecutor
 import org.bukkit.event.Listener
@@ -17,6 +18,10 @@ class Tourneyutils : JavaPlugin() {
         registerCommand(AllTeleport(), "allteleport")
         registerCommand(Countdown(), "countdown")
         registerCommand(SetLocation(), "setlocation")
+        registerCommand(PartyChat(), "party")
+        registerCommand(Mute(), "mute")
+
+        registerEvents(ChatMessage())
 
         config.options().copyDefaults(true)
 

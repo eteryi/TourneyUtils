@@ -26,3 +26,9 @@ commands:
   setlocation:
     usage: /setlocation
     description: Saves your current location to be used in the /allteleport command.
+  party:
+    usage: /party
+    description: Activates the party chat
+  mute:
+    usage: /mute
+    description: Mutes chat.
