@@ -20,3 +20,9 @@ commands:
   allteleport:
     usage: /allteleport
     description: Teleports all players from a specific team to your current location.
+  countdown:
+    usage: /countdown
+    description: Counts down.
+  setlocation:
+    usage: /setlocation
+    description: Saves your current location to be used in the /allteleport command.

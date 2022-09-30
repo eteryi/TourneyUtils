@@ -5,6 +5,7 @@ import dev.cross.tourneyutils.manager.Teams
 import dev.cross.tourneyutils.manager.UnicodeFormatter
 import org.bukkit.Bukkit
 import org.bukkit.ChatColor
+import org.bukkit.Sound
 import org.bukkit.command.Command
 import org.bukkit.command.CommandExecutor
 import org.bukkit.command.CommandSender
@@ -35,6 +36,7 @@ class Announce : CommandExecutor {
             var teamTwo = ColorGetter.getTeamFromString(args[1].lowercase())
 
             for(i in Bukkit.getOnlinePlayers()) {
+                i.playSound(i.location, Sound.ENTITY_GENERIC_EXPLODE, 1.5F, 0.5F)
                 i.sendTitle("${ChatColor.RED}${UnicodeFormatter.getStringUnicode("NEXT ROUND!")}", "${ColorGetter.getColor(teamOne)}${UnicodeFormatter.getStringUnicode(ColorGetter.getFullName(teamOne))} ${ChatColor.WHITE}${UnicodeFormatter.getStringUnicode("vs")} ${ColorGetter.getColor(teamTwo)}${UnicodeFormatter.getStringUnicode(ColorGetter.getFullName(teamTwo))}", 0, 200, 0)
             }
         }

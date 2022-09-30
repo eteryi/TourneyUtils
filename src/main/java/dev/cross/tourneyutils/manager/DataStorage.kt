@@ -27,5 +27,6 @@ class DataStorage {
             }
             return listOfPlayers
         }
+
     }
 }
