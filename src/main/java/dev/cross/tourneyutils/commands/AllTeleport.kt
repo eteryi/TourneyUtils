@@ -26,8 +26,6 @@ class AllTeleport : CommandExecutor {
 
             var team = ColorGetter.getTeamFromString(args[0].lowercase())
 
-            sender.sendMessage("${ChatColor.GRAY}${UnicodeFormatter.getStringUnicode("Teleporting all of")} ${ColorGetter.getColor(team)}${UnicodeFormatter.getStringUnicode("${ColorGetter.getFullName(team)}${ChatColor.GRAY}...")}")
-
 
             if(args.size >= 2) {
                 if(ConfigManager.getLocationByName(args[1]) == null) {
@@ -37,11 +35,13 @@ class AllTeleport : CommandExecutor {
                 for(i in DataStorage.getAllPlayersFromTeam(team)) {
                     i.teleport(ConfigManager.getLocationByName(args[1])!!)
                 }
+                sender.sendMessage("${ChatColor.GRAY}${UnicodeFormatter.getStringUnicode("Teleporting all of")} ${ColorGetter.getColor(team)}${UnicodeFormatter.getStringUnicode("${ColorGetter.getFullName(team)}${ChatColor.GRAY}...")}")
                 return true
             }
             for(i in DataStorage.getAllPlayersFromTeam(team)) {
                 i.teleport(sender.location)
             }
+            sender.sendMessage("${ChatColor.GRAY}${UnicodeFormatter.getStringUnicode("Teleporting all of")} ${ColorGetter.getColor(team)}${UnicodeFormatter.getStringUnicode("${ColorGetter.getFullName(team)}${ChatColor.GRAY}...")}")
         }
         return true
     }

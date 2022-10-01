@@ -39,6 +39,9 @@ class TimeManager {
         }
 
         fun startCountdown() {
+            if(count != null) {
+                count?.cancel()
+            }
             count = object : BukkitRunnable() {
                 override fun run() {
                     timeLeft--
