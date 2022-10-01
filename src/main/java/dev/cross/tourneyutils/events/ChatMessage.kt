@@ -13,18 +13,18 @@ class ChatMessage : Listener {
     fun onMessage(e : AsyncPlayerChatEvent) {
         e.isCancelled = true
 
-        if(ChatManager.isMuted() && !e.player.isOp) {
-            e.player.sendMessage("${ChatColor.RED}${UnicodeFormatter.getStringUnicode("Hey!")} ${ChatColor.GRAY}${UnicodeFormatter.getStringUnicode("Chat is turned off for now")}.")
-            return
-        }
         if(ChatManager.getChatMap(e.player) == ChatType.PARTY) {
             val message = e.message
             val team = DataStorage.getPlayerTeam(e.player)
-            val chatMessage = "${ChatColor.YELLOW}[${ColorGetter.getColor(team)}${UnicodeFormatter.getStringUnicode(ColorGetter.getFullName(team))}${ChatColor.YELLOW}] ${ColorGetter.getColor(team)}${e.player.name}: ${ChatColor.WHITE}$message"
+            val chatMessage = "${ChatColor.YELLOW}[${ColorGetter.getColor(team)}${UnicodeFormatter.getStringUnicode("Party")}${ChatColor.YELLOW}] ${ColorGetter.getColor(team)}${e.player.name}: ${ChatColor.WHITE}$message"
             for(i in DataStorage.getAllPlayersFromTeam(DataStorage.getPlayerTeam(e.player))) {
                 i.sendMessage(chatMessage)
             }
             Bukkit.getLogger().info(chatMessage)
+            return
+        }
+        if(ChatManager.isMuted() && !e.player.isOp) {
+            e.player.sendMessage("${ChatColor.RED}${UnicodeFormatter.getStringUnicode("Hey!")} ${ChatColor.GRAY}${UnicodeFormatter.getStringUnicode("Chat is turned off for now")}.")
             return
         }
         val message = e.message
