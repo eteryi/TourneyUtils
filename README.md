@@ -29,3 +29,9 @@ Plugin made for the organization of events in Minecraft 1.16.5.
 
 <h3>/setlocation {locationName}</h3>
 <h5>Adds a new location to the config file of the plugin, that can be used to teleport teams using the /allteleport command.</h5>
+
+<h3>/mute</h3>
+<h5>Mutes the entire local chat.</h5>
+
+<h3>/party</h3>
+<h5>Party chat.</h5>
