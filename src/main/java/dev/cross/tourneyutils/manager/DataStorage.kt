@@ -10,6 +10,16 @@ class DataStorage {
 
         private var playerTeams = hashMapOf<UUID, Teams>()
 
+        private var roundAnnounceTime = 10
+
+        fun getRoundAnnounceTime(): Int {
+            return roundAnnounceTime
+        }
+
+        fun setRoundAnnounceTime(t : Int) {
+            roundAnnounceTime = t
+        }
+
         fun getPlayerTeam(player: Player): Teams {
             return playerTeams[player.uniqueId] ?: Teams.NONE
         }

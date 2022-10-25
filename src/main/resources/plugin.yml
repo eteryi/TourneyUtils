@@ -1,7 +1,7 @@
 name: TourneyUtils
 version: '${project.version}'
 main: dev.cross.tourneyutils.Tourneyutils
-api-version: 1.16
+api-version: 1.19
 authors: [ Cross ]
 description: Made to give a better experience in events.
 commands:
