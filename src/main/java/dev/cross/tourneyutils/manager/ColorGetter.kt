@@ -1,6 +1,7 @@
 package dev.cross.tourneyutils.manager
 
-import org.bukkit.ChatColor
+import net.md_5.bungee.api.ChatColor
+
 
 class ColorGetter {
     companion object {
@@ -15,12 +16,14 @@ class ColorGetter {
                 "red" to Teams.RED_RABBITS,
                 "green" to Teams.GREEN_GECKOS,
                 "cyan" to Teams.CYAN_COYOTES,
-                "aqua" to Teams.AQUA_AXOLOTLS
+                "aqua" to Teams.AQUA_AXOLOTLS,
+                "yellow" to Teams.YELLOW_YAKS,
+                "orange" to Teams.ORANGE_OCELOTS
             )
             return colorMap[team] ?: Teams.NONE
         }
         fun getColor(team : Teams): ChatColor {
-            var colorMap = hashMapOf<Teams, ChatColor>(
+            var colorMap = hashMapOf<Teams, net.md_5.bungee.api.ChatColor>(
 
                 Teams.LIME_LLAMAS to ChatColor.GREEN,
                 Teams.PINK_PARROTS to ChatColor.LIGHT_PURPLE,
@@ -29,7 +32,9 @@ class ColorGetter {
                 Teams.RED_RABBITS to ChatColor.RED,
                 Teams.GREEN_GECKOS to ChatColor.DARK_GREEN,
                 Teams.CYAN_COYOTES to ChatColor.DARK_AQUA,
-                Teams.AQUA_AXOLOTLS to ChatColor.AQUA
+                Teams.AQUA_AXOLOTLS to ChatColor.AQUA,
+                Teams.ORANGE_OCELOTS to ChatColor.of("#eb941a"),
+                Teams.YELLOW_YAKS to ChatColor.YELLOW
             )
             return colorMap[team] ?: ChatColor.WHITE
         }
@@ -43,7 +48,9 @@ class ColorGetter {
                 Teams.RED_RABBITS to "Red Rabbits",
                 Teams.GREEN_GECKOS to "Green Geckos",
                 Teams.CYAN_COYOTES to "Cyan Coyotes",
-                Teams.AQUA_AXOLOTLS to "Aqua Axolotls"
+                Teams.AQUA_AXOLOTLS to "Aqua Axolotls",
+                Teams.YELLOW_YAKS to "Yellow Yaks",
+                Teams.ORANGE_OCELOTS to "Orange Ocelots"
             )
             return colorMap[team] ?: "NONE"
         }
