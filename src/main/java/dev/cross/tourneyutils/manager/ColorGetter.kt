@@ -9,6 +9,7 @@ class ColorGetter {
         fun getTeamFromString(team : String) : Teams {
             var colorMap = hashMapOf<String, Teams>(
 
+                "lavender" to Teams.LAVENDER_LIGHTERS,
                 "lime" to Teams.LIME_LLAMAS,
                 "pink" to Teams.PINK_PARROTS,
                 "purple" to Teams.PURPLE_PANDAS,
@@ -25,6 +26,7 @@ class ColorGetter {
         fun getColor(team : Teams): ChatColor {
             var colorMap = hashMapOf<Teams, net.md_5.bungee.api.ChatColor>(
 
+                Teams.LAVENDER_LIGHTERS to ChatColor.of("#dcd0ff"),
                 Teams.LIME_LLAMAS to ChatColor.GREEN,
                 Teams.PINK_PARROTS to ChatColor.LIGHT_PURPLE,
                 Teams.PURPLE_PANDAS to ChatColor.DARK_PURPLE,
@@ -50,7 +52,8 @@ class ColorGetter {
                 Teams.CYAN_COYOTES to "Cyan Coyotes",
                 Teams.AQUA_AXOLOTLS to "Aqua Axolotls",
                 Teams.YELLOW_YAKS to "Yellow Yaks",
-                Teams.ORANGE_OCELOTS to "Orange Ocelots"
+                Teams.ORANGE_OCELOTS to "Orange Ocelots",
+                Teams.LAVENDER_LIGHTERS to "Lavender Lighters"
             )
             return colorMap[team] ?: "NONE"
         }

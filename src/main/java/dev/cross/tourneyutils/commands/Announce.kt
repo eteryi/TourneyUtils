@@ -37,7 +37,7 @@ class Announce : CommandExecutor {
             var teamTwo = ColorGetter.getTeamFromString(args[1].lowercase())
 
             for(i in Bukkit.getOnlinePlayers()) {
-                i.playSound(i.location, Sound.ENTITY_GENERIC_EXPLODE, 1.5F, 0.5F)
+                i.playSound(i.location, Sound.ENTITY_GENERIC_EXPLODE, 2.0F, 0.025F)
                 i.sendTitle("${ChatColor.RED}${UnicodeFormatter.getStringUnicode("NEXT ROUND!")}", "${ColorGetter.getColor(teamOne)}${UnicodeFormatter.getStringUnicode(ColorGetter.getFullName(teamOne))} ${ChatColor.WHITE}${UnicodeFormatter.getStringUnicode("vs")} ${ColorGetter.getColor(teamTwo)}${UnicodeFormatter.getStringUnicode(ColorGetter.getFullName(teamTwo))}", 0, (20 * DataStorage.getRoundAnnounceTime()), 0)
             }
         }

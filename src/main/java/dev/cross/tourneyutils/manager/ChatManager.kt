@@ -7,7 +7,14 @@ class ChatManager {
     companion object {
         private var chatMap = hashMapOf<UUID, ChatType>()
         private var isMuted = false
+        private val lastPlayerMessaged = hashMapOf<Player, Player>()
 
+        fun setLastMessaged(p : Player, m : Player) {
+            lastPlayerMessaged[p] = m
+        }
+        fun getLastMessaged(p : Player): Player? {
+            return lastPlayerMessaged[p]
+        }
         fun setIsMuted(b : Boolean) {
             isMuted = b
         }

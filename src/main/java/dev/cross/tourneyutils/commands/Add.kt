@@ -19,13 +19,19 @@ class Add : CommandExecutor {
                 return true
             }
             if(args.size <= 1) {
-                sender.sendMessage("${ChatColor.RED}Correct usage: /add <player> <team> (e.g: /add etery lime)")
+                sender.sendMessage("${ChatColor.RED}Correct usage: /add <player> <team> (e.g: /add etery lime")
+                sender.sendMessage("${ChatColor.RED}or /add etery,vibesnek lime)")
                 return true
             }
 
-            if(Bukkit.getPlayerExact(args[0]) == null) {
-                sender.sendMessage("${ChatColor.RED}${UnicodeFormatter.getStringUnicode("That player so called ${args[0]} was not found.")}")
-                return true
+
+            val players = args[0].split(',')
+
+            for(i in players) {
+                if(Bukkit.getPlayerExact(i) == null) {
+                    sender.sendMessage("${ChatColor.RED}${UnicodeFormatter.getStringUnicode("That player so called $i was not found.")}")
+                    return true
+                }
             }
             if(ColorGetter.getTeamFromString(args[1].lowercase()) == Teams.NONE) {
                 sender.sendMessage("${ChatColor.RED}${UnicodeFormatter.getStringUnicode("That team so called ${args[1].lowercase()} was not found.")}")
@@ -33,7 +39,10 @@ class Add : CommandExecutor {
             }
             var team = ColorGetter.getTeamFromString(args[1].lowercase())
             sender.sendMessage("${ChatColor.GRAY}${UnicodeFormatter.getStringUnicode("You have added ${args[0].lowercase()} to")} ${ColorGetter.getColor(team)}${UnicodeFormatter.getStringUnicode("${args[1]}.")}")
-            DataStorage.setPlayerTeam(Bukkit.getPlayerExact(args[0])!!, team)
+
+            for(i in players) {
+                DataStorage.setPlayerTeam(Bukkit.getPlayerExact(i)!!, team)
+            }
         }
         return true
     }

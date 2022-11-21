@@ -3,6 +3,7 @@ package dev.cross.tourneyutils
 import dev.cross.tourneyutils.commands.*
 import dev.cross.tourneyutils.commands.List
 import dev.cross.tourneyutils.events.ChatMessage
+import dev.cross.tourneyutils.events.OnMessage
 import dev.cross.tourneyutils.manager.DataStorage
 import org.bukkit.Bukkit
 import org.bukkit.command.CommandExecutor
@@ -26,7 +27,7 @@ class Tourneyutils : JavaPlugin() {
 
         config.options().copyDefaults(true)
 
-        config.addDefault("announceTimeInSeconds", 10)
+        config.addDefault("announceTimeInSeconds", 5)
         saveConfig()
 
         if(config.getInt("announceTimeInSeconds") > 0) {
